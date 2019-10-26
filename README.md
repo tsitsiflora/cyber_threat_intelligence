@@ -10,6 +10,6 @@ Link to literature review: https://docs.google.com/document/d/1ifD8otspq4xvXUsX0
 - Warden: https://warden.cesnet.cz/en/index
 
 ## Tools
-- STIX: https://stixproject.github.io/
+- STIX: https://stixproject.github.io/ (https://oasis-open.github.io/cti-documentation/)
 - TAXII: https://taxiiproject.github.io/
 - CybOX: https://cyboxproject.github.io/
