@@ -17,5 +17,14 @@ def parse_json():
             json_data = json.load(f) # parsing the json file to a python object
 
 
+
+import stix2viz
+import json
+
+with open('test.json', 'r') as f:
+    data = json.load(f)
+#print(data)
+stix2viz.display(data)
+
 output = parse_json()
 print(output)
