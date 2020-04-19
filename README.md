@@ -1,5 +1,5 @@
-# hit400
-The official repository for my HIT400 project
+# Cyber Threat Intelligence Platform
+Forgive me, I am well aware that this repo is a mess.
 
 ## Topic: Leveraging IOCs for effective Cyber Threat Intelligence in tertiary institutions
 
@@ -57,4 +57,6 @@ The threat intelligence platform is meant to enhance the way institutions share 
 
 5. Peer to peer
 
-- to bundle it u, the system must be a peer to peer network. It must allow it's users to get updates being shared in real time
+- to bundle it up, the system must be a peer to peer network. It must allow it's users to get updates being shared in real time
+
+Yep! I'm just as confused as you are.
