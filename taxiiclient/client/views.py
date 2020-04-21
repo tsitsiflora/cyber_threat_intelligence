@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponse
+from taxii2client.v20 import Server
 
 # Create your views here.
   
@@ -22,17 +23,18 @@ def login_view(request):
 def dashboard_view(request):
     return render(request, 'dashindex.html')
 
-def icon_view(request):
-    return render(request, 'icon-material.html')
-
-def error404_view(request):
-    return render(request, 'error-404.html')
-
 def profile_view(request):
     return render(request, 'pages-profile.html')
 
 def table_view(request):
+    server = Server('https://limo.anomali.com/api/v1/taxii2/taxii/', user='guest', password='guest')
+    api_root = server.api_roots[0]
+    collection = api_root.collections[0]
+    objects = collection.get_objects()
+    print(collection.title)
+    print(objects)
+
     return render(request, 'table-basic.html')
 
-def starter_view(request):
-    return render(request, 'starter-kit.html')
+
+
