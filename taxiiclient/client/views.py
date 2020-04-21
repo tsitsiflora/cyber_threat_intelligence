@@ -34,7 +34,7 @@ def table_view(request):
     print(collection.title)
     print(objects)
 
-    return render(request, 'table-basic.html')
+    return render(request, 'table-basic.html', objects)
 
 
 
