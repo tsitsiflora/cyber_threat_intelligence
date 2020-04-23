@@ -7,6 +7,7 @@ urlpatterns = [
     path('dashboard', dashboard_view, name='Dashboard'),
     path('profile', profile_view, name='Profile'),
     path('table', table_view, name='Table'),
+    path('new', newioc_view, name='Post_new'),
     
 ]
     
