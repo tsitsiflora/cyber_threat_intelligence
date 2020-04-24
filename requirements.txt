@@ -33,7 +33,7 @@ decorator==4.4.2
 defer==1.0.6
 defusedxml==0.6.0
 distro-info===0.18ubuntu0.18.04.1
-Django==2.2.2
+Django==2.2.10
 django-bootstrap4==0.0.7
 django-crispy-forms==1.7.2
 django-oauth-toolkit==1.2.0
