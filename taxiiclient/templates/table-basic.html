@@ -320,38 +320,42 @@
                   <h4 class="card-title">Viewing Records</h4>
                   <!-- <h6 class="card-subtitle">Use <code>.table-striped</code> to add zebra-striping to any table row within the <code>&lt;tbody&gt;</code>.</h6> -->
                 </div>
-                <div class="table-responsive">
-                  <table class="table table-striped">
-                    <thead>
-                      <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Date Created</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Description</th>
-                        <th scope="col">Pattern</th>
-                        <th scope="col">Type</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {% if data is not None %} {% for row in data %}
-                      <tr>
-                        <th scope="row">{{ row.id }}</th>
-                        <td>{{ row.created }}</td>
-                        <td>{{ row.name }}</td>
-                        <td>{{ row.description }}</td>
-                        <td>{{ row.pattern }}</td>
-                        <td>{{ row.type }}</td>
-                      </tr>
-                      {% endfor %} {% else %}
-                      <tr>
-                        <td>
-                          No data returned.
-                        </td>
-                      </tr>
-                      {% endif %}
-                    </tbody>
-                  </table>
+                
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                          <thead>
+                            <tr>
+                              <th scope="col">#</th>
+                              <th scope="col">Date Created</th>
+                              <th scope="col">Name</th>
+                              <th scope="col">Description</th>
+                              <th scope="col">Pattern</th>
+                              <th scope="col">Type</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {% if data is not None %} {% for row in data %}
+                            <tr>
+                              <th scope="row">{{ row.id }}</th>
+                              <td>{{ row.created }}</td>
+                              <td>{{ row.name }}</td>
+                              <td>{{ row.description }}</td>
+                              <td>{{ row.pattern }}</td>
+                              <td>{{ row.type }}</td>
+                            </tr>
+                            {% endfor %} {% else %}
+                            <tr>
+                              <td>
+                                No data returned.
+                              </td>
+                            </tr>
+                            {% endif %}
+                          </tbody>
+                        </table>
+                      </div>
                 </div>
+
               </div>
             </div>
           </div>
