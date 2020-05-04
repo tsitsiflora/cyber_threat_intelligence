@@ -156,14 +156,22 @@
             </div>
             <!-- End Sidebar scroll-->
         </aside>
-        <div class="page-wrapper">
-        <form method="POST" class="post-form">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" value="submit" class="save btn btn-default">Save</button>
-    </form>
-        </div?
-        </div>
+        <div class="limiter">
+		<div class="container-login100" style="background-image: url('{% static 'Login/images/bg-01.jpg'%}');">
+			<div class="card" style="width:300px; margin: 30px auto;">
+                <div class="card-header">
+                   Add new Indicator
+                </div>
+                <div class="card-body">
+                <form action="" method="POST" style="width:250px; margin: 0 auto">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit" value="submit" class="save btn btn-default">Save</button>
+                </form>
+                </div>
+            </div>
+		</div>
+	</div>
         <!-- ============================================================== -->
         <!-- End Page wrapper  -->
         <!-- ============================================================== -->
