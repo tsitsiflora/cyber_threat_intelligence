@@ -36,7 +36,7 @@ def table_view(request):
     api_root = server.api_roots[0]
     collection = api_root.collections[0]
     
-    print(collection.title)
+    #print(collection.title)
     #objects = collection.get_objects()
     #print(collection.title)
     #print(objects)
