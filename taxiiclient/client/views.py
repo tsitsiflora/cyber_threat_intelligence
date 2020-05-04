@@ -39,7 +39,7 @@ def table_view(request):
     
     objects = collection.get_objects()
 
-    return render(request, 'table-basic.html', {'data': objects.objects})
+    return render(request, 'table-basic.html', {'data': objects["objects"]})
 
 def newioc_view(request):
     #if request.method == 'POST':
