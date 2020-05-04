@@ -5,6 +5,7 @@ from taxii2client.v20 import Server
 from .forms import IndicatorForm
 from .models import Indicator
 from stix2 import Indicator
+import json
 # Create your views here.
   
 # Create your views here. 
@@ -36,12 +37,9 @@ def table_view(request):
     api_root = server.api_roots[0]
     collection = api_root.collections[0]
     
-    print(collection.title)
-    #objects = collection.get_objects()
-    #print(collection.title)
-    #print(objects)
+    objects = collection.get_objects()
 
-    return render(request, 'table-basic.html')
+    return render(request, 'table-basic.html', {'data': objects.objects})
 
 def newioc_view(request):
     #if request.method == 'POST':
