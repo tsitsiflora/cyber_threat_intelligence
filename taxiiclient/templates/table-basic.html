@@ -25,7 +25,7 @@
     <link
       rel="stylesheet"
       type="text/css"
-      href="{% static 'vendor/DataTables/datatables.min.css' %}"
+      href="{% static 'vendor/datatables/datatables.min.css' %}"
     />
     <link href="{% static 'app/css/app.css'%}" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -163,9 +163,7 @@
                     width="31"
                 /></a>
                 <div class="dropdown-menu dropdown-menu-right user-dd animated">
-                  <a class="dropdown-item" href="javascript:void(0)"
-                    ><i class="ti-user m-r-5 m-l-5"></i> My Profile</a
-                  >
+            
                 </div>
               </li>
               <!-- ============================================================== -->
@@ -221,9 +219,7 @@
                       class="dropdown-menu dropdown-menu-right"
                       aria-labelledby="Userdd"
                     >
-                      <a class="dropdown-item" href="javascript:void(0)"
-                        ><i class="ti-user m-r-5 m-l-5"></i> My Profile</a
-                      >
+
 
                       <a class="dropdown-item" href="javascript:void(0)"
                         ><i class="fa fa-power-off m-r-5 m-l-5"></i> Logout</a
@@ -233,14 +229,9 @@
                 </div>
                 <!-- End User Profile-->
               </li>
-              <li class="p-15 m-t-10">
-                <a
-                  href="javascript:void(0)"
-                  class="btn btn-block create-btn text-white no-block d-flex align-items-center"
-                  ><i class="fa fa-plus-square"></i>
-                  <span class="hide-menu m-l-5">Create New IOC</span>
-                </a>
-              </li>
+              <li class="p-15 m-t-10"><a href="{% url 'client:Post_new' %}" class="btn btn-block create-btn text-white no-block d-flex align-items-center"><i class="fa fa-plus-square"></i> <span class="hide-menu m-l-5">Create New IOC</span> </a></li>
+              <li class="p-15 m-t-10"><a href="https://oasis-open.github.io/cti-stix-visualization" class="btn btn-block create-btn text-white no-block d-flex align-items-center"><i class="fa fa-plus-square"></i> <span class="hide-menu m-l-5">Visualize</span> </a></li>
+                        
               <!-- User Profile-->
               <li class="sidebar-item">
                 <a
@@ -251,15 +242,7 @@
                   ><span class="hide-menu">Dashboard</span></a
                 >
               </li>
-              <li class="sidebar-item">
-                <a
-                  class="sidebar-link waves-effect waves-dark sidebar-link"
-                  href="{% url 'client:Profile' %} "
-                  aria-expanded="false"
-                  ><i class="mdi mdi-account-network"></i
-                  ><span class="hide-menu">Profile</span></a
-                >
-              </li>
+            
               <li class="sidebar-item">
                 <a
                   class="sidebar-link waves-effect waves-dark sidebar-link"
@@ -288,7 +271,7 @@
         <div class="page-breadcrumb">
           <div class="row align-items-center">
             <div class="col-5">
-              <h4 class="page-title">Basic Table</h4>
+              <h4 class="page-title">Server Contents</h4>
               <div class="d-flex align-items-center">
                 <nav aria-label="breadcrumb">
                   <ol class="breadcrumb">
@@ -317,7 +300,8 @@
             <div class="col-12">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">Viewing Records</h4>
+                  <h4 class="card-title">Phish Tank Collection</h4>
+                  <h6 class="card-subtitle">Viewing Records</h6>
                   <!-- <h6 class="card-subtitle">Use <code>.table-striped</code> to add zebra-striping to any table row within the <code>&lt;tbody&gt;</code>.</h6> -->
                 </div>
                 
@@ -326,12 +310,12 @@
                         <table class="table table-striped">
                           <thead>
                             <tr>
-                              <th scope="col">#</th>
+                              <th scope="col">ID</th>
                               <th scope="col">Date Created</th>
                               <th scope="col">Name</th>
                               <th scope="col">Description</th>
                               <th scope="col">Pattern</th>
-                              <th scope="col">Type</th>
+                              <th scope="col">Labels</th>
                             </tr>
                           </thead>
                           <tbody>
@@ -342,7 +326,7 @@
                               <td>{{ row.name }}</td>
                               <td>{{ row.description }}</td>
                               <td>{{ row.pattern }}</td>
-                              <td>{{ row.type }}</td>
+                              <td>{{ row.labels }}</td>
                             </tr>
                             {% endfor %} {% else %}
                             <tr>
@@ -376,10 +360,7 @@
         <!-- ============================================================== -->
         <!-- footer -->
         <!-- ============================================================== -->
-        <footer class="footer text-center">
-          All Rights Reserved by Xtreme Admin. Designed and Developed by
-          <a href="https://wrappixel.com">WrapPixel</a>.
-        </footer>
+    
         <!-- ============================================================== -->
         <!-- End footer -->
         <!-- ============================================================== -->
@@ -402,7 +383,7 @@
     <!-- DataTables JavaScript-->
     <script
       type="text/javascript"
-      src="{% static 'vendor/DataTables/datatables.min.js' %}"
+      src="{% static 'vendor/datatables/datatables.min.js' %}"
     ></script>
     <!--Wave Effects -->
     <script src="{% static 'Dashboard/dist/js/waves.js' %} "></script>

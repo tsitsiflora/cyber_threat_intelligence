@@ -17,6 +17,11 @@
         <link href="{% static 'Dashboard/assets/libs/chartist/dist/chartist.min.css'%}" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="{% static 'Dashboard/dist/css/style.min.css'%}" rel="stylesheet">
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'vendor/datatables/datatables.min.css' %}"
+    />
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -133,7 +138,6 @@
                                         <span class="op-5 user-email">security.admin@hit.ac.zw</span>
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="Userdd">
-                                        <a class="dropdown-item" href="javascript:void(0)"><i class="ti-user m-r-5 m-l-5"></i> My Profile</a>
                                         
                                         <a class="dropdown-item" href="javascript:void(0)"><i class="fa fa-power-off m-r-5 m-l-5"></i> Logout</a>
                                     </div>
@@ -146,7 +150,6 @@
                         
                         <!-- User Profile-->
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{% url 'client:Dashboard' %}" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Dashboard</span></a></li>
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{% url 'client:Profile' %} " aria-expanded="false"><i class="mdi mdi-account-network"></i><span class="hide-menu">Profile</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{% url 'client:Table' %} " aria-expanded="false"><i class="mdi mdi-border-all"></i><span class="hide-menu">All Records</span></a></li>
                         
                     </ul>
@@ -191,137 +194,7 @@
             <!-- Container fluid  -->
             <!-- ============================================================== -->
             <div class="container-fluid">
-                
-                <div class="row">
-                    <!-- column -->
-                    <div class="col-12">
-                        <div class="card">
-                            <div class="card-body">
-                                <!-- title -->
-                                <div class="d-md-flex align-items-center">
-                                    <div>
-                                        <h4 class="card-title">Recently added Indicators of Compromise</h4>
-                                        <h5 class="card-subtitle">Overview of IOCs</h5>
-                                    </div>
-                                    <div class="ml-auto">
-                                        <div class="dl">
-                                            <select class="custom-select">
-                                                <option value="0" selected>Monthly</option>
-                                                <option value="1">Daily</option>
-                                                <option value="2">Weekly</option>
-                                                <option value="3">Yearly</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- title -->
-                            </div>
-                            <div class="table-responsive">
-                                <table class="table v-middle">
-                                    <thead>
-                                        <tr class="bg-light">
-                                            <th class="border-top-0">Name</th>
-                                            <th class="border-top-0"></th>
-                                            <th class="border-top-0">Support Agent</th>
-                                            <th class="border-top-0">Technology</th>
-                                            <th class="border-top-0">Tickets</th>
-                                            <th class="border-top-0">Sales</th>
-                                            <th class="border-top-0">Earnings</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>
-                                                <div class="d-flex align-items-center">
-                                                    <div class="m-r-10"><a class="btn btn-circle btn-info text-white">EA</a></div>
-                                                    <div class="">
-                                                        <h4 class="m-b-0 font-16">Elite Admin</h4>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>Single Use</td>
-                                            <td>John Doe</td>
-                                            <td>
-                                                <label class="label label-danger">Angular</label>
-                                            </td>
-                                            <td>46</td>
-                                            <td>356</td>
-                                            <td>
-                                                <h5 class="m-b-0">$2850.06</h5>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="d-flex align-items-center">
-                                                    <div class="m-r-10"><a class="btn btn-circle btn-orange text-white">MA</a></div>
-                                                    <div class="">
-                                                        <h4 class="m-b-0 font-16">Monster Admin</h4>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>Single Use</td>
-                                            <td>Venessa Fern</td>
-                                            <td>
-                                                <label class="label label-info">Vue Js</label>
-                                            </td>
-                                            <td>46</td>
-                                            <td>356</td>
-                                            <td>
-                                                <h5 class="m-b-0">$2850.06</h5>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="d-flex align-items-center">
-                                                    <div class="m-r-10"><a class="btn btn-circle btn-success text-white">MP</a></div>
-                                                    <div class="">
-                                                        <h4 class="m-b-0 font-16">Material Pro Admin</h4>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>Single Use</td>
-                                            <td>John Doe</td>
-                                            <td>
-                                                <label class="label label-success">Bootstrap</label>
-                                            </td>
-                                            <td>46</td>
-                                            <td>356</td>
-                                            <td>
-                                                <h5 class="m-b-0">$2850.06</h5>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="d-flex align-items-center">
-                                                    <div class="m-r-10"><a class="btn btn-circle btn-purple text-white">AA</a></div>
-                                                    <div class="">
-                                                        <h4 class="m-b-0 font-16">Ample Admin</h4>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>Single Use</td>
-                                            <td>John Doe</td>
-                                            <td>
-                                                <label class="label label-purple">React</label>
-                                            </td>
-                                            <td>46</td>
-                                            <td>356</td>
-                                            <td>
-                                                <h5 class="m-b-0">$2850.06</h5>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- ============================================================== -->
-                <!-- Table -->
-                <!-- ============================================================== -->
-                <!-- ============================================================== -->
-                <!-- Recent comment and chats -->
-                <!-- ============================================================== -->
+
                 <div class="row">
                     <!-- column -->
                     <div class="col-lg-6">
@@ -439,6 +312,149 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Mitre Att&ck Matrix</h4>
+                                <h6 class="card-subtitle">Enterprise Collection</h6>
+                  <!-- <h6 class="card-subtitle">Use <code>.table-striped</code> to add zebra-striping to any table row within the <code>&lt;tbody&gt;</code>.</h6> -->
+                            </div>
+                
+                    <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                          <thead>
+                            <tr>
+                              <th scope="col">ID</th>
+                              <th scope="col">Type</th>
+                              <th scope="col">Description</th>
+                              <th scope="col">Created</th>
+                              <th scope="col">External References</th>
+                            
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {% if data1 is not None %} {% for row in data1 %}
+                            <tr>
+                              <th scope="row">{{ row.id }}</th>
+                              <td>{{ row.type }}</td>
+                              <td>{{ row.description }}</td>
+                              <td>{{ row.created }}</td>
+                              <td>{{ row.external_references }}</td>
+                            
+                            </tr>
+                            {% endfor %} {% else %}
+                            <tr>
+                              <td>
+                                No data returned.
+                              </td>
+                            </tr>
+                            {% endif %}
+                          </tbody>
+                        </table>
+                      </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Mitre Att&ck Matrix</h4>
+                                <h6 class="card-subtitle">Pre-Att&ck Collection</h6>
+                  <!-- <h6 class="card-subtitle">Use <code>.table-striped</code> to add zebra-striping to any table row within the <code>&lt;tbody&gt;</code>.</h6> -->
+                            </div>
+                
+                    <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                          <thead>
+                            <tr>
+                              <th scope="col">ID</th>
+                              <th scope="col">Type</th>
+                              <th scope="col">Description</th>
+                              <th scope="col">Created</th>
+                              <th scope="col">External References</th>
+                            
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {% if data2 is not None %} {% for row in data2 %}
+                            <tr>
+                              <th scope="row">{{ row.id }}</th>
+                              <td>{{ row.type }}</td>
+                              <td>{{ row.description }}</td>
+                              <td>{{ row.created }}</td>
+                              <td>{{ row.external_references }}</td>
+                            
+                            </tr>
+                            {% endfor %} {% else %}
+                            <tr>
+                              <td>
+                                No data returned.
+                              </td>
+                            </tr>
+                            {% endif %}
+                          </tbody>
+                        </table>
+                      </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Mobile Collection</h4>
+                                <h6 class="card-subtitle">Mitre Att&ck Matrix</h6>
+                  <!-- <h6 class="card-subtitle">Use <code>.table-striped</code> to add zebra-striping to any table row within the <code>&lt;tbody&gt;</code>.</h6> -->
+                            </div>
+                
+                    <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                          <thead>
+                            <tr>
+                              <th scope="col">ID</th>
+                              <th scope="col">Type</th>
+                              <th scope="col">Description</th>
+                              <th scope="col">Created</th>
+                              <th scope="col">External References</th>
+                            
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {% if data3 is not None %} {% for row in data3 %}
+                            <tr>
+                              <th scope="row">{{ row.id }}</th>
+                              <td>{{ row.type }}</td>
+                              <td>{{ row.description }}</td>
+                              <td>{{ row.created }}</td>
+                              <td>{{ row.external_references }}</td>
+                            
+                            </tr>
+                            {% endfor %} {% else %}
+                            <tr>
+                              <td>
+                                No data returned.
+                              </td>
+                            </tr>
+                            {% endif %}
+                          </tbody>
+                        </table>
+                      </div>
+                </div>
+
+            </div>
+                
+                
+                <!-- ============================================================== -->
+                <!-- Table -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- Recent comment and chats -->
+                <!-- ============================================================== -->
+                
                 <!-- ============================================================== -->
                 <!-- Recent comment and chats -->
                 <!-- ============================================================== -->
@@ -449,9 +465,7 @@
             <!-- ============================================================== -->
             <!-- footer -->
             <!-- ============================================================== -->
-            <footer class="footer text-center">
-                All Rights Reserved by Xtreme Admin. Designed and Developed by <a href="https://wrappixel.com">WrapPixel</a>.
-            </footer>
+            
             <!-- ============================================================== -->
             <!-- End footer -->
             <!-- ============================================================== -->
@@ -475,6 +489,11 @@
     <script src="{% static 'Dashboard/dist/js/waves.js'%}"></script>
     <!--Menu sidebar -->
     <script src="{% static 'Dashboard/dist/js/sidebarmenu.js'%}"></script>
+    <!-- DataTables JavaScript-->
+    <script
+      type="text/javascript"
+      src="{% static 'vendor/datatables/datatables.min.js' %}"
+    ></script>
     <!--Custom JavaScript -->
     <script src="{% static 'Dashboard/dist/js/custom.js'%}"></script>
     <!--This page JavaScript -->
