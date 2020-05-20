@@ -6,7 +6,7 @@ from taxii2client.v20 import Server
 app = Flask(__name__)
 
 
-@app.route('https://cti-taxii.mitre.org/taxii', methods=['GET'])
+@app.route('/api/mitre-pre', methods=['GET'])
 def get_preattack_objects():
     server = Server('https://cti-taxii.mitre.org/taxii')
     api_root = server.api_roots[0]
@@ -15,7 +15,7 @@ def get_preattack_objects():
     objects = collection.get_objects()
     return jsonify({'data': objects["objects"]})
 
-@app.route('https://limo.anomali.com/api/v1/taxii2/taxii/', methods=['GET'])
+@app.route('/api/data/phishtank', methods=['GET'])
 def get_objects():
     server = Server('https://limo.anomali.com/api/v1/taxii2/taxii/', user='guest', password='guest')
     api_root = server.api_roots[0]
@@ -24,7 +24,7 @@ def get_objects():
     objects = collection.get_objects()
     return jsonify({'data': objects["objects"]})
 
-@app.route('https://cti-taxii.mitre.org/taxii', methods=['GET'])
+@app.route('/api/mitre-enterprise', methods=['GET'])
 def get_entepriseattack_objects():
     server = Server('https://cti-taxii.mitre.org/taxii')
     api_root = server.api_roots[0]
@@ -33,7 +33,7 @@ def get_entepriseattack_objects():
     objects = collection.get_objects()
     return jsonify({'data': objects["objects"]})
 
-@app.route('https://cti-taxii.mitre.org/taxii', methods=['GET'])
+@app.route('/api/mitre-mobile', methods=['GET'])
 def get_mobileattack_objects():
     server = Server('https://cti-taxii.mitre.org/taxii')
     api_root = server.api_roots[0]
