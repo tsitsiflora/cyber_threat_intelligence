@@ -10,7 +10,7 @@ app = Flask(__name__)
 def get_preattack_objects():
     server = Server('https://cti-taxii.mitre.org/taxii')
     api_root = server.api_roots[0]
-    collection = api_root[1]
+    collection = api_root.collections[1]
     
     objects = collection.get_objects()
     return jsonify({'data': objects["objects"]})
@@ -28,7 +28,7 @@ def get_objects():
 def get_entepriseattack_objects():
     server = Server('https://cti-taxii.mitre.org/taxii')
     api_root = server.api_roots[0]
-    collection = api_root[0]
+    collection = api_root.collections[0]
     
     objects = collection.get_objects()
     return jsonify({'data': objects["objects"]})
@@ -37,7 +37,7 @@ def get_entepriseattack_objects():
 def get_mobileattack_objects():
     server = Server('https://cti-taxii.mitre.org/taxii')
     api_root = server.api_roots[0]
-    collection = api_root[2]
+    collection = api_root.collections[2]
     
     objects = collection.get_objects()
     return jsonify({'data': objects["objects"]})
