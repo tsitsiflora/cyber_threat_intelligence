@@ -1,5 +1,5 @@
 #!flask/bin/python
-#!flask/bin/python
+
 from flask import Flask, jsonify
 from taxii2client.v20 import Server
 
