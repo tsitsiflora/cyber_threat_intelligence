@@ -1,8 +1,8 @@
-import stix2viz
-import json
+from taxii2client.v20 import Server
 
-with open("test.json", "r") as f:
-	data = json.load(f)
-print(data)
-#stix2viz.display(data)
+server = Server('https://limo.anomali.com/api/v1/taxii2/taxii/', user='guest', password='guest')
+api_root = server.api_roots[0]
+collection = api_root.collections[0]
 
+
+objects = collection.get_objects()
