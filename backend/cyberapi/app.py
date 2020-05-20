@@ -28,7 +28,7 @@ def get_objects():
 def get_entepriseattack_objects():
     server = Server('https://cti-taxii.mitre.org/taxii')
     api_root = server.api_roots[0]
-    collection = api_root.collections[0]
+    collection = api_root.collections[1]
     
     objects = collection.get_objects()
     return jsonify({'data': objects["objects"]})
@@ -43,4 +43,4 @@ def get_mobileattack_objects():
     return jsonify({'data': objects["objects"]})
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, port=8050)
