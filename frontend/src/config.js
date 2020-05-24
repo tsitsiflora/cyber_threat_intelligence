@@ -1,3 +1,7 @@
+export function apiUrl(uri) {
+  return `http://localhost:8050${uri}`
+}
+
 export default {
   app: {
     sidebarTransitionTime: 300, //ms
@@ -16,6 +20,6 @@ export default {
     },
     chartColors: {
       axisColor: '#8EA1AB'
-    }
+    },
   }
 };

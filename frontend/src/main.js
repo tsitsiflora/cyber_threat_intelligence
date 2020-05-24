@@ -7,6 +7,8 @@ import VueTouch from 'vue-touch';
 import Trend from 'vuetrend';
 import Toasted from 'vue-toasted';
 import VueApexCharts from 'vue-apexcharts';
+import VueTables from "vue-tables-2";
+import VueSwal from 'vue-swal'
 
 import store from './store';
 import router from './Routes';
@@ -14,9 +16,11 @@ import App from './App';
 import layoutMixin from './mixins/layout';
 import Widget from './components/Widget/Widget';
 
+Vue.use(VueSwal)
 Vue.use(BootstrapVue);
 Vue.use(VueTouch);
 Vue.use(Trend);
+Vue.use(VueTables.ClientTable);
 Vue.component('Widget', Widget);
 Vue.use(VueGoogleMaps, {
   load: {

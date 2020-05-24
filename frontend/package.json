@@ -29,13 +29,17 @@
     "vue": "^2.5.17",
     "vue-apexcharts": "^1.5.0",
     "vue-echarts": "^4.0.4",
+    "vue-property-decorator": "^8.4.2",
     "vue-router": "^3.0.1",
     "vue-toasted": "^1.1.27",
     "vue-touch": "2.0.0-beta.4",
     "vue2-google-maps": "^0.10.2",
     "vuetrend": "^0.3.2",
     "vuex": "^3.0.1",
-    "webpack-cli": "^3.1.2"
+    "webpack-cli": "^3.1.2",
+    "axios": "^0.19.2",
+    "vue-swal": "^1.0.0",
+    "vue-tables-2": "^2.0.27"
   },
   "devDependencies": {
     "@babel/plugin-proposal-optional-chaining": "^7.7.5",
