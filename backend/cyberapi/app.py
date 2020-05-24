@@ -15,6 +15,7 @@ def get_preattack_objects():
     objects = collection.get_objects()
     return jsonify({'data': objects["objects"]})
 
+
 @app.route('/api/data/phishtank', methods=['GET'])
 def get_objects():
     server = Server('https://limo.anomali.com/api/v1/taxii2/taxii/', user='guest', password='guest')
@@ -23,6 +24,7 @@ def get_objects():
 
     objects = collection.get_objects()
     return jsonify({'data': objects["objects"]})
+
 
 @app.route('/api/mitre-enterprise', methods=['GET'])
 def get_entepriseattack_objects():
