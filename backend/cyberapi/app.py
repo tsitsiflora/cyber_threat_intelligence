@@ -3,6 +3,8 @@
 
 from flask import Flask, jsonify
 from taxii2client.v20 import Server
+from taxii2client.v20 import Collection
+from stix2 import *
 
 app = Flask(__name__)
 
@@ -42,6 +44,22 @@ def get_mobileattack_objects():
     
     objects = collection.get_objects()
     return jsonify({'data': objects["objects"]})
+
+@app.route('/api/discovered', methods=['GET, POST'])
+def get_newly_added_objects():
+    collection = Collection('http://127.0.0.1:5000/trustgroup1/collections/91a7b528-80eb-42ed-a74d-c6fbd5a26116',
+                user='admin',
+                password='Password0')
+    objects = collection.get_objects()
+    return jsonify({'data':objects})
+
+def post_newly_discovered_objects():
+    collection = Collection('http://127.0.0.1:5000/trustgroup1/collections/91a7b528-80eb-42ed-a74d-c6fbd5a26116',
+                user='admin',
+                password='Password0')
+    indicator = Indicator(type=type, name=name, labels=labels, pattern=pattern)
+    collection.add_objects(indicator)
+
 
 if __name__ == '__main__':
     app.run(debug=True)
