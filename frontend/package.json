@@ -29,6 +29,7 @@
     "vue": "^2.5.17",
     "vue-apexcharts": "^1.5.0",
     "vue-echarts": "^4.0.4",
+    "vue-property-decorator": "^8.4.2",
     "vue-router": "^3.0.1",
     "vue-toasted": "^1.1.27",
     "vue-touch": "2.0.0-beta.4",

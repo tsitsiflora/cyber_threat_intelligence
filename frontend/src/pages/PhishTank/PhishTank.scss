@@ -1,0 +1,8 @@
+* { // this works for all but td
+  word-wrap:break-word;
+}
+
+table { // this somehow makes it work for td
+  table-layout:fixed;
+  width:100%;
+}

@@ -1097,6 +1097,16 @@ address@^1.0.3:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/address/-/address-1.1.2.tgz#bf1116c9c758c51b7a933d296b72c221ed9428b6"
 
+ag-grid-community@^23.1.1:
+  version "23.1.1"
+  resolved "https://registry.yarnpkg.com/ag-grid-community/-/ag-grid-community-23.1.1.tgz#049ebbd2b521df4b1ad54ae68d98144cf9963e07"
+  integrity sha512-bWpilWkD7b19BNoycVfifAmXVZGI+s1m/G6ixx7tOcXTQEU+tA6dWiHn2kxt1iiLsixvEwi/6JQu1j9Iykrb7Q==
+
+ag-grid-vue@^23.1.1:
+  version "23.1.1"
+  resolved "https://registry.yarnpkg.com/ag-grid-vue/-/ag-grid-vue-23.1.1.tgz#95e0a9fc495b53c6472e00fce66cdc56fbd1f00d"
+  integrity sha512-p2dciX0gbWmsu+CbGNnqPLWb+Evcdvh8ny6i2mThkAcqFcYNuIv4Hy9wKlAKBiSLpivncSwckP1iHEDEMngMhw==
+
 ajv-errors@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/ajv-errors/-/ajv-errors-1.0.1.tgz#f35986aceb91afadec4102fbd85014950cefa64d"
@@ -7396,6 +7406,11 @@ vue-apexcharts@^1.5.0:
   version "1.5.2"
   resolved "https://registry.yarnpkg.com/vue-apexcharts/-/vue-apexcharts-1.5.2.tgz#d1f55b889718aa9e1c753e267c8cb59055ff89f3"
 
+vue-class-component@^7.1.0:
+  version "7.2.3"
+  resolved "https://registry.yarnpkg.com/vue-class-component/-/vue-class-component-7.2.3.tgz#a5b1abd53513a72ad51098752e2dedd499807cca"
+  integrity sha512-oEqYpXKaFN+TaXU+mRLEx8dX0ah85aAJEe61mpdoUrq0Bhe/6sWhyZX1JjMQLhVsHAkncyhedhmCdDVSasUtDw==
+
 vue-echarts@^4.0.4:
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/vue-echarts/-/vue-echarts-4.1.0.tgz#ff4828aaa599e7aaaac95e35297d964192a3af0d"
@@ -7431,6 +7446,13 @@ vue-loader@^15.7.0:
     loader-utils "^1.1.0"
     vue-hot-reload-api "^2.3.0"
     vue-style-loader "^4.1.0"
+
+vue-property-decorator@^8.4.2:
+  version "8.4.2"
+  resolved "https://registry.yarnpkg.com/vue-property-decorator/-/vue-property-decorator-8.4.2.tgz#016e17f259f73bc547e77a50ce282ba18db4ee41"
+  integrity sha512-IqbARlvgPE2pzKfbecKxsu2yEH0Wv7hfHR6m4eZA3LTnNw9hveAX77vDfLFyTeMISS5N7Kucp/xRSHjcQ6bAfQ==
+  dependencies:
+    vue-class-component "^7.1.0"
 
 vue-router@^3.0.1:
   version "3.1.6"
