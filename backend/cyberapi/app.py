@@ -64,6 +64,7 @@ def post_newly_discovered_objects():
     collection = Collection('http://127.0.0.1:5000/trustgroup1/collections/91a7b528-80eb-42ed-a74d-c6fbd5a26116',
                 user='admin',
                 password='Password0')
+    
     indicator = Indicator(type=type, name=name, labels=labels, pattern=pattern)
     collection.add_objects(indicator)
 

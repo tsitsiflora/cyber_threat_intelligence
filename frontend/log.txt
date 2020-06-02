@@ -1,0 +1,5 @@
+
+> sing-app-vue@4.5.0 serve /home/girlhacker/Desktop/Part4.1/HIT400/cyber_threat_intelligence/frontend
+> vue-cli-service serve --port 3000
+
+ INFO  Starting development server...
