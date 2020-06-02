@@ -37,7 +37,7 @@
         <label for="patternInput">Pattern</label>
         <textarea
           id="patternInput"
-          name="patternInput"
+          name="pattern"
           cols="40"
           rows="5"
           class="form-control"
@@ -61,17 +61,65 @@
       <div class="form-group">
         <button name="submit" type="submit" class="btn btn-primary">
           Save IoC
-          <svg v-if="loading" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="margin: auto; background: rgba(255, 255, 255, 0); display: inline-block; shape-rendering: auto;" width="50px" height="30px" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
-<rect x="15" y="30" width="10" height="40" fill="#e15b64">
-  <animate attributeName="opacity" dur="1s" repeatCount="indefinite" calcMode="spline" keyTimes="0;0.5;1" keySplines="0.5 0 0.5 1;0.5 0 0.5 1" values="1;0.2;1" begin="-0.6"></animate>
-</rect><rect x="35" y="30" width="10" height="40" fill="#f47e60">
-  <animate attributeName="opacity" dur="1s" repeatCount="indefinite" calcMode="spline" keyTimes="0;0.5;1" keySplines="0.5 0 0.5 1;0.5 0 0.5 1" values="1;0.2;1" begin="-0.4"></animate>
-</rect><rect x="55" y="30" width="10" height="40" fill="#f8b26a">
-  <animate attributeName="opacity" dur="1s" repeatCount="indefinite" calcMode="spline" keyTimes="0;0.5;1" keySplines="0.5 0 0.5 1;0.5 0 0.5 1" values="1;0.2;1" begin="-0.2"></animate>
-</rect><rect x="75" y="30" width="10" height="40" fill="#abbd81">
-  <animate attributeName="opacity" dur="1s" repeatCount="indefinite" calcMode="spline" keyTimes="0;0.5;1" keySplines="0.5 0 0.5 1;0.5 0 0.5 1" values="1;0.2;1" begin="-1"></animate>
-</rect>
-</svg>
+          <svg
+            v-if="loading"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            style="margin: auto; background: rgba(255, 255, 255, 0); display: inline-block; shape-rendering: auto;"
+            width="50px"
+            height="30px"
+            viewBox="0 0 100 100"
+            preserveAspectRatio="xMidYMid"
+          >
+            <rect x="15" y="30" width="10" height="40" fill="#e15b64">
+              <animate
+                attributeName="opacity"
+                dur="1s"
+                repeatCount="indefinite"
+                calcMode="spline"
+                keyTimes="0;0.5;1"
+                keySplines="0.5 0 0.5 1;0.5 0 0.5 1"
+                values="1;0.2;1"
+                begin="-0.6"
+              ></animate>
+            </rect>
+            <rect x="35" y="30" width="10" height="40" fill="#f47e60">
+              <animate
+                attributeName="opacity"
+                dur="1s"
+                repeatCount="indefinite"
+                calcMode="spline"
+                keyTimes="0;0.5;1"
+                keySplines="0.5 0 0.5 1;0.5 0 0.5 1"
+                values="1;0.2;1"
+                begin="-0.4"
+              ></animate>
+            </rect>
+            <rect x="55" y="30" width="10" height="40" fill="#f8b26a">
+              <animate
+                attributeName="opacity"
+                dur="1s"
+                repeatCount="indefinite"
+                calcMode="spline"
+                keyTimes="0;0.5;1"
+                keySplines="0.5 0 0.5 1;0.5 0 0.5 1"
+                values="1;0.2;1"
+                begin="-0.2"
+              ></animate>
+            </rect>
+            <rect x="75" y="30" width="10" height="40" fill="#abbd81">
+              <animate
+                attributeName="opacity"
+                dur="1s"
+                repeatCount="indefinite"
+                calcMode="spline"
+                keyTimes="0;0.5;1"
+                keySplines="0.5 0 0.5 1;0.5 0 0.5 1"
+                values="1;0.2;1"
+                begin="-1"
+              ></animate>
+            </rect>
+          </svg>
         </button>
       </div>
     </form>
@@ -101,20 +149,25 @@ export default {
         url: apiUrl("/api/ioc/create"),
         data: data,
       })
-        .then(function(response) {
+        .then((raw) => {
+          let response = raw.data;
+
+          if (response.status !== "success") throw new Error("Failed to saved");
+
           this.$swal({
             title: "IoC saved",
             text: "We have successfully saved your new IoC.",
             icon: "success",
           });
+
           this.loading = false;
         })
-        .catch(function(response) {
+        .catch(() => {
           this.$swal({
             title: "Yikes!",
             text:
               "An error occured while trying to send request. Please try again",
-            icon: "danger",
+            icon: "error",
           });
 
           this.loading = false;

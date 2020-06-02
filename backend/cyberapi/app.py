@@ -10,15 +10,21 @@ app = Flask(__name__)
 def prepare_response(res_object, status_code = 200):
     response = jsonify(res_object)
     response.headers.set('Access-Control-Allow-Origin', '*')
+    response.headers.set('Access-Control-Allow-Headers', '*')
     response.headers.set('Access-Control-Allow-Methods', 'GET, POST')
     return response, status_code
     
 @app.route('/api/ioc/create', methods=['POST'])    
 def create_ioc():
     # Do something here
-    ## Those two property will have the data you need I think so try dump them out
-    print(request.form)
-    print(request.json)
+    name = request.form.get('name')
+    rtype = request.form.get('type')
+    pattern = request.form.get('pattern')
+    labels = request.form.get('labels')
+
+    # return prepare_response({'status': 'error', 'message': 'Something wen\'t wrong while trying to save IoC'})
+
+    return prepare_response({'status': 'success', 'message': 'IoC was saved successfully'})
 
 
 @app.route('/api/mitre-pre', methods=['GET'])
