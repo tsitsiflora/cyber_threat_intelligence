@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 #!flask/bin/python
-
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
 from taxii2client.v20 import Server
 from taxii2client.v20 import Collection
 from stix2 import *
@@ -13,6 +12,28 @@ def prepare_response(res_object, status_code = 200):
     response.headers.set('Access-Control-Allow-Origin', '*')
     response.headers.set('Access-Control-Allow-Methods', 'GET, POST')
     return response, status_code
+    
+@app.route('/api/ioc/create', methods=['POST, GET'])    
+def create_ioc():
+    # Do something here
+    ## Those two property will have the data you need I think so try dump them out
+    print(request.form)
+    print(request.json)
+    
+    collection = Collection('http://127.0.0.1:5000/trustgroup1/collections/91a7b528-80eb-42ed-a74d-c6fbd5a26116',
+                            user='admin',
+                            password='Password0')
+
+    #indicator = Indicator(type=type, name=name, labels=labels, pattern=pattern)
+    #collection.add_objects(indicator)
+
+def display_ioc():
+    
+    collection = Collection('http://127.0.0.1:5000/trustgroup1/collections/91a7b528-80eb-42ed-a74d-c6fbd5a26116',
+                user='admin',
+                password='Password0')
+    objects = collection.get_objects()
+    return jsonify({'data':objects})
 
 @app.route('/api/mitre-pre', methods=['GET'])
 def get_preattack_objects():
@@ -51,22 +72,7 @@ def get_mobileattack_objects():
     
     objects = collection.get_objects()
     return prepare_response({'data': objects["objects"]})
-
-@app.route('/api/discovered', methods=['GET, POST'])
-def get_newly_added_objects():
-    collection = Collection('http://127.0.0.1:5000/trustgroup1/collections/91a7b528-80eb-42ed-a74d-c6fbd5a26116',
-                user='admin',
-                password='Password0')
-    objects = collection.get_objects()
-    return jsonify({'data':objects})
-
-def post_newly_discovered_objects():
-    collection = Collection('http://127.0.0.1:5000/trustgroup1/collections/91a7b528-80eb-42ed-a74d-c6fbd5a26116',
-                user='admin',
-                password='Password0')
     
-    indicator = Indicator(type=type, name=name, labels=labels, pattern=pattern)
-    collection.add_objects(indicator)
 
 
 if __name__ == '__main__':
