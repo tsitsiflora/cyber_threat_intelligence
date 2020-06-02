@@ -1,6 +1,6 @@
 #!flask/bin/python
 #!flask/bin/python
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
 from taxii2client.v20 import Server
 
 app = Flask(__name__)
@@ -10,6 +10,14 @@ def prepare_response(res_object, status_code = 200):
     response.headers.set('Access-Control-Allow-Origin', '*')
     response.headers.set('Access-Control-Allow-Methods', 'GET, POST')
     return response, status_code
+    
+@app.route('/api/ioc/create', methods=['POST'])    
+def create_ioc():
+    # Do something here
+    ## Those two property will have the data you need I think so try dump them out
+    print(request.form)
+    print(request.json)
+
 
 @app.route('/api/mitre-pre', methods=['GET'])
 def get_preattack_objects():
