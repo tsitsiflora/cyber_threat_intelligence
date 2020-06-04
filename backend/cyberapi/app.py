@@ -10,29 +10,69 @@ app = Flask(__name__)
 def prepare_response(res_object, status_code = 200):
     response = jsonify(res_object)
     response.headers.set('Access-Control-Allow-Origin', '*')
+    response.headers.set('Access-Control-Allow-Headers', '*')
     response.headers.set('Access-Control-Allow-Methods', 'GET, POST')
     return response, status_code
     
-@app.route('/api/ioc/create', methods=['POST, GET'])    
+@app.route('/api/ioc/create', methods=['GET', 'POST'])    
 def create_ioc():
     # Do something here
+
     ## Those two property will have the data you need I think so try dump them out
     print(request.form)
     print(request.json)
     
-    collection = Collection('http://127.0.0.1:5000/trustgroup1/collections/91a7b528-80eb-42ed-a74d-c6fbd5a26116',
+    collection = Collection('http://127.0.0.1:5000/trustgroup1/collections/365fed99-08fa-fdcd-a1b3-fb247eb41d01',
                             user='admin',
                             password='Password0')
 
-    #indicator = Indicator(type=type, name=name, labels=labels, pattern=pattern)
-    #collection.add_objects(indicator)
+    name = request.form.get('name')
+    rtype = request.form.get('type')
+    pattern = request.form.get('pattern')
+    labels = request.form.get('labels')
+
+    # return prepare_response({'status': 'error', 'message': 'Something went wrong while trying to save IoC'})
+    if rtype == "Indicator":
+        indicator = Indicator(name=name, pattern=pattern, labels=labels)
+        bundle = Bundle([indicator]).serialize()
+        collection.add_objects(bundle)
+    elif rtype == "Malware":
+        malware = Malware(name=name, labels=labels)
+        bundle = Bundle([malware]).serialize()
+        collection.add_objects(bundle)
+    elif rtype == "Attack Pattern":
+        attack_pattern = AttackPattern(name=name, pattern=pattern, labels=labels)
+        bundle = Bundle([attack_pattern]).serialize()
+        collection.add_objects(bundle)
+    elif rtype == "Identity":
+        identity = Identity(name=name, labels=labels)
+        bundle = Bundle([identity]).serialize()
+        collection.add_objects(bundle)
+    elif rtype == "Threat Actor":
+        threat_actor = ThreatActor(name=name, pattern=pattern, labels=labels)
+        bundle = Bundle([threat_actor]).serialize()
+        collection.add_objects(bundle)
+    elif rtype == "Tool":
+        tool = Tool(name=name, pattern=pattern, labels=labels)
+        bundle = Bundle([tool]).serialize()
+        collection.add_objects(bundle)
+    elif rtype == "Vulnerability":
+        vuln = Vulnerability(name=name, pattern=pattern, labels=labels)
+        bundle = Bundle([vuln]).serialize()
+        collection.add_objects(bundle)
+    else:
+        print("Invalid Option Selected")
+
+    return prepare_response({'status': 'success', 'message': 'IoC was saved successfully'})
+
 
 def display_ioc():
     
-    collection = Collection('http://127.0.0.1:5000/trustgroup1/collections/91a7b528-80eb-42ed-a74d-c6fbd5a26116',
+    collection = Collection('http://127.0.0.1:5000/trustgroup1/collections/365fed99-08fa-fdcd-a1b3-fb247eb41d01',
                 user='admin',
                 password='Password0')
     objects = collection.get_objects()
+    print(objects)
     return jsonify({'data':objects})
 
 @app.route('/api/mitre-pre', methods=['GET'])
