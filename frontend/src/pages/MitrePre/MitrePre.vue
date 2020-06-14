@@ -12,6 +12,7 @@
                             <th>External ID</th>
                             <th>Source Name</th>
                             <th>External URL</th>
+                            <th>External References</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -19,6 +20,7 @@
                             <td>{{ reference.external_id || "Unset"}}</td>
                             <td>{{ reference.source_name || "Unset"}}</td>
                             <td>{{ reference.url || "Unset" }}</td>
+                            <td>{{ reference.external_references || "Unset" }}</td>
                         </tr>
                         </tbody>
                     </table>
