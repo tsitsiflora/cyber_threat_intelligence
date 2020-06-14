@@ -1,12 +1,19 @@
 <template>
   <li v-if="!childrenLinks && isHeader" :class="{headerLink: true, className}">
-    <router-link :to="link" class="sidebar-link">
+    <router-link :to="link" class="sidebar-link" v-if="!isExternalLink">
       <span class="icon">
         <i :class="fullIconName"></i>
       </span>
       {{header}} <sup v-if="label" :class="'text-' + labelColor" class="headerLabel">{{label}}</sup>
       <b-badge v-if="badge" variant="primary" pill>{{badge}}</b-badge>
     </router-link>
+    <a class="sidebar-link" :href="link" v-else>
+     <span class="icon">
+        <i :class="fullIconName"></i>
+      </span>
+      {{header}} <sup v-if="label" :class="'text-' + labelColor" class="headerLabel">{{label}}</sup>
+      <b-badge v-if="badge" variant="primary" pill>{{badge}}</b-badge>
+    </a>
   </li>
   <li v-else-if="childrenLinks" :class="{headerLink: true, className}">
     <div @click="() => togglePanelCollapse(link)">
@@ -74,6 +81,11 @@ export default {
     },
   },
   computed: {
+    isExternalLink() {
+      if(!this.link || typeof this.link !== 'string') return false;
+
+      return this.link.substr(0, 4).toLowerCase() === 'http';
+    },
     fullIconName() {
       return `fi ${this.iconName}`;
     },
