@@ -26,7 +26,6 @@
           <option value="indicator">Indicator</option>
           <option value="attack-pattern">Attack Pattern</option>
           <option value="identity">Identity</option>
-          <option value="location">Location</option>
           <option value="malware">Malware</option>
           <option value="threat-actor">Threat actor</option>
           <option value="tool">Tool</option>
@@ -41,7 +40,6 @@
           cols="40"
           rows="5"
           class="form-control"
-          required="required"
         ></textarea>
       </div>
       <div class="form-group">

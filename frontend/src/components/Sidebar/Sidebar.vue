@@ -6,7 +6,7 @@
         @mouseleave="sidebarMouseLeave"
     >
       <header class="logo">
-        <router-link to="/app"><span class="primary-word">Cyber</span>Threat</router-link>
+        <router-link to="/app"><span class="primary-word">One</span>CTI</router-link>
       </header>
       <ul class="nav">
         <NavLink
@@ -53,6 +53,14 @@
                 :activeItem="activeItem"
                 header="Add IoC"
                 link="/app/new-ioc"
+                iconName="flaticon-add"
+                index="typography"
+                isHeader
+        />
+        <NavLink
+                :activeItem="activeItem"
+                header="Visualize"
+                link="https://oasis-open.github.io/cti-stix-visualization/"
                 iconName="flaticon-add"
                 index="typography"
                 isHeader

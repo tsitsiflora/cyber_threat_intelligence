@@ -37,12 +37,13 @@
         },
         data() {
             return {
-                columns: ['id', 'type', 'description'],
+                columns: ['id', 'type', 'description', 'external_references'],
                 options: {
                     headings: {
                         id: 'ID',
                         type: 'Type',
                         description: 'Description',
+                        external_references: 'External References',
                     },
                     editableColumns: [],
                     sortable: ['name', 'type'],
