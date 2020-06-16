@@ -61,7 +61,7 @@
                 :activeItem="activeItem"
                 header="Visualize"
                 link="https://oasis-open.github.io/cti-stix-visualization/"
-                iconName="flaticon-add"
+                iconName="flaticon-app"
                 index="typography"
                 isHeader
         />
