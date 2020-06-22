@@ -121,24 +121,6 @@
         </button>
       </div>
     </form>
-    <table class="table-bordered" v-if="props.row.external_references && props.row.external_references.length > 0">
-                        <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Type</th>
-                            <th>Pattern</th>
-                            <th>Labels</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr v-for="reference in props.row.external_references">
-                            <td>{{ reference.name || "Unset"}}</td>
-                            <td>{{ reference.type || "Unset"}}</td>
-                            <td>{{ reference.pattern || "Unset" }}</td>
-                            <td>{{ reference.labels || "Unset" }}</td>
-                        </tr>
-                        </tbody>
-                    </table>
   </div>
 </template>
 
