@@ -14,7 +14,7 @@ def prepare_response(res_object, status_code = 200):
     response.headers.set('Access-Control-Allow-Methods', 'GET, POST')
     return response, status_code
     
-@app.route('/api/ioc/create', methods=['POST', 'GET'])    
+@app.route('/api/ioc/create', methods=['POST'])    
 def create_ioc():
     
     
@@ -60,9 +60,17 @@ def create_ioc():
     return prepare_response({'status': 'success', 'message': 'IoC was saved successfully'})
 
 
+@app.route('/api/ioc/view_new', methods=['GET'])    
+def view_new_ioc():
+    
+    collection = Collection('http://127.0.0.1:5000/trustgroup1/collections/365fed99-08fa-fdcd-a1b3-fb247eb41d01',
+                            user='admin',
+                            password='Password0')
+
     new_objects = collection.get_objects()
     print(new_objects)
-    return jsonify({'data':objects})
+    return jsonify({'data':new_objects})
+
 
 @app.route('/api/mitre-pre', methods=['GET'])
 def get_preattack_objects():
