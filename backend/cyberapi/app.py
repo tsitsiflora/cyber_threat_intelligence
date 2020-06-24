@@ -21,7 +21,7 @@ def create_ioc():
                             password='Password0')
 
     name = request.form.get('name')
-    rtype = request.form.get('type')
+    rtype = request.form.get('rtype')
     pattern = request.form.get('pattern')
     labels = request.form.get('labels')
 
@@ -52,7 +52,7 @@ def create_ioc():
         collection.add_objects(bundle)
     elif rtype == "vulnerability":
         vuln = Vulnerability(name=name, pattern=pattern, labels=labels)
-        bundle = Bundle([vuln]).()serialize
+        bundle = Bundle([vuln]).serialize()
         collection.add_objects(bundle)
     
     return prepare_response({'status': 'success', 'message': 'IoC was saved successfully'})

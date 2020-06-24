@@ -21,7 +21,7 @@
                         <label for="select">Type</label>
                         <select
                                 id="select"
-                                name="type"
+                                name="rtype"
                                 class="form-control"
                                 required="required"
                                 v-model="indicator.type"
