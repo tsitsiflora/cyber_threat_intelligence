@@ -16,8 +16,6 @@ def prepare_response(res_object, status_code = 200):
     
 @app.route('/api/ioc/create', methods=['POST'])    
 def create_ioc():
-    
-    
     collection = Collection('http://127.0.0.1:5000/trustgroup1/collections/365fed99-08fa-fdcd-a1b3-fb247eb41d01',
                             user='admin',
                             password='Password0')
@@ -28,33 +26,33 @@ def create_ioc():
     labels = request.form.get('labels')
 
     # return prepare_response({'status': 'error', 'message': 'Something went wrong while trying to save IoC'})
-    if rtype == "Indicator":
+    if rtype == "indicator":
         indicator = Indicator(name=name, pattern=pattern, labels=labels)
         bundle = Bundle([indicator]).serialize()
         collection.add_objects(bundle)
-    elif rtype == "Malware":
+    elif rtype == "malware":
         malware = Malware(name=name, labels=labels)
         bundle = Bundle([malware]).serialize()
         collection.add_objects(bundle)
-    elif rtype == "Attack Pattern":
+    elif rtype == "attack-pattern":
         attack_pattern = AttackPattern(name=name, pattern=pattern, labels=labels)
         bundle = Bundle([attack_pattern]).serialize()
         collection.add_objects(bundle)
-    elif rtype == "Identity":
+    elif rtype == "identity":
         identity = Identity(name=name, labels=labels)
         bundle = Bundle([identity]).serialize()
         collection.add_objects(bundle)
-    elif rtype == "Threat Actor":
+    elif rtype == "threat-actor":
         threat_actor = ThreatActor(name=name, pattern=pattern, labels=labels)
         bundle = Bundle([threat_actor]).serialize()
         collection.add_objects(bundle)
-    elif rtype == "Tool":
+    elif rtype == "tool":
         tool = Tool(name=name, pattern=pattern, labels=labels)
         bundle = Bundle([tool]).serialize()
         collection.add_objects(bundle)
-    elif rtype == "Vulnerability":
+    elif rtype == "vulnerability":
         vuln = Vulnerability(name=name, pattern=pattern, labels=labels)
-        bundle = Bundle([vuln]).serialize()
+        bundle = Bundle([vuln]).()serialize
         collection.add_objects(bundle)
     
     return prepare_response({'status': 'success', 'message': 'IoC was saved successfully'})
