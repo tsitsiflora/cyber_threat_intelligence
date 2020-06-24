@@ -69,7 +69,7 @@ def view_new_ioc():
 
     new_objects = collection.get_objects()
     print(new_objects)
-    return jsonify({'data':new_objects})
+    return prepare_response({'data':new_objects})
 
 
 @app.route('/api/mitre-pre', methods=['GET'])
