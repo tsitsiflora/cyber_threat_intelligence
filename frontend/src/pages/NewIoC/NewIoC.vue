@@ -184,7 +184,7 @@
         created() {
             this.getIoCs();
 
-            setTimeout(() => {
+            setInterval(() => {
                 this.getIoCs();
             }, 100000);
         },
