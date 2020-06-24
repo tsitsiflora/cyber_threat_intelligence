@@ -231,7 +231,6 @@
 
                         if (response.status !== "success") throw new Error("Failed to saved");
 
-                        this.iocs.push(this.indicator);
                         this.$swal({
                             title: "IoC saved",
                             text: "We have successfully saved your new IoC. We are going to fetch the latest records in the background",
