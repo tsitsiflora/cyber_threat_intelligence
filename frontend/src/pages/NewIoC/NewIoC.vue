@@ -37,8 +37,9 @@
         <textarea
           id="patternInput"
           name="pattern"
+          
           cols="40"
-          rows="5"
+          rows="3"
           class="form-control"
         ></textarea>
       </div>
@@ -47,8 +48,9 @@
         <textarea
           id="labels"
           name="labels"
+          type="text"
           cols="40"
-          rows="5"
+          rows="3"
           class="form-control"
           aria-describedby="labelsHelpBlock"
         ></textarea>

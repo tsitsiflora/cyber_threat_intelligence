@@ -14,13 +14,9 @@ def prepare_response(res_object, status_code = 200):
     response.headers.set('Access-Control-Allow-Methods', 'GET, POST')
     return response, status_code
     
-@app.route('/api/ioc/create', methods=['GET', 'POST'])    
+@app.route('/api/ioc/create', methods=['POST', 'GET'])    
 def create_ioc():
-    # Do something here
-
-    ## Those two property will have the data you need I think so try dump them out
-    print(request.form)
-    print(request.json)
+    
     
     collection = Collection('http://127.0.0.1:5000/trustgroup1/collections/365fed99-08fa-fdcd-a1b3-fb247eb41d01',
                             user='admin',
@@ -60,19 +56,12 @@ def create_ioc():
         vuln = Vulnerability(name=name, pattern=pattern, labels=labels)
         bundle = Bundle([vuln]).serialize()
         collection.add_objects(bundle)
-    else:
-        print("Invalid Option Selected")
-
+    
     return prepare_response({'status': 'success', 'message': 'IoC was saved successfully'})
 
 
-def display_ioc():
-    
-    collection = Collection('http://127.0.0.1:5000/trustgroup1/collections/365fed99-08fa-fdcd-a1b3-fb247eb41d01',
-                user='admin',
-                password='Password0')
-    objects = collection.get_objects()
-    print(objects)
+    new_objects = collection.get_objects()
+    print(new_objects)
     return jsonify({'data':objects})
 
 @app.route('/api/mitre-pre', methods=['GET'])
